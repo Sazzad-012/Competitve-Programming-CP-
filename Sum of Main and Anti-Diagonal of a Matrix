@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<vector<int>> matrix(n, vector<int>(n));
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cin >> matrix[i][j];
+
+    int mainDiagonalSum = 0, antiDiagonalSum = 0;
+
+    for (int i = 0; i < n; i++) {
+        mainDiagonalSum += matrix[i][i];
+        antiDiagonalSum += matrix[i][n - i - 1];
+    }
+
+    cout << n << "x" << n << " Matrix" << endl;
+    cout << "Main Diagonal Sum: " << mainDiagonalSum << endl;
+    cout << "Anti-Diagonal Sum: " << antiDiagonalSum << endl;
+
+    return 0;
+}
